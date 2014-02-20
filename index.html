@@ -1,0 +1,219 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>H.I.I.T. Timer</title>
+
+<link rel="stylesheet" href="themes/hittTheme.min.css" />
+<link href="jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="hiit.css" />
+<script src="js/hiit.js" type="text/javascript"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="home" data-theme="a">
+	<div data-role="header">
+		<h1><a href="#home">H.I.I.T. Timer</a></h1>
+	</div>
+	<div data-role="content">
+    
+	  <div class="ui-grid-a">
+	    <div class="ui-block-a"><a href="#timer" data-role="button" data-transition="slide">Timer</a></div>
+	    <div class="ui-block-b"><a href="#routines" data-role="button" data-transition="slide">Routines</a></div>
+	    <div class="ui-block-a"><a href="#settings" data-role="button" data-transition="slide">Settings</a></div>
+	    <div class="ui-block-b"><a href="#help" data-role="button" data-transition="slide">Help</a></div>
+      </div>	
+		
+	</div>
+	<div data-role="footer" data-position="fixed">
+    	<p class="center"> add copyight info here: creative commons something or other </p>
+	</div>
+</div>   <!-- /home page  -->
+ 
+<div data-role="page" id="timer" data-theme="a">
+	<div data-role="header">
+		<h1>Timer</h1>
+        <a dat-rel="back" href="javascript:history.back()" data-icon="arrow-l" data-iconpos="notext"></a>
+        <a href="#routines" data-rel="" data-icon="grid" data-iconpos="notext"></a>
+
+	</div>
+    <div data-role="content">
+          <div id="timeDisplay" class="center">
+            	<p> <span id="minutes">00</span>:<span id="seconds">00</span> </p>
+          </div>
+
+        <div class="ui-grid-b">
+          <div class="ui-block-a"><button onClick="start()">Start</button></div>
+          <div class="ui-block-b"><button>Stop</button></div>
+          <div class="ui-block-c"><button onClick="reset()">Reset</button></div>
+        </div>
+	</div><!-- /content -->
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#timer" class="ui-btn-active ui-state-persist" data-transition="slide">timer</a></li>
+				<li><a href="#routines" data-transition="slide">routines</a></li>
+				<li><a href="#settings" data-transition="slide">settings</a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!-- /timer page  -->
+
+<div data-role="page" id="settings" data-theme="a">
+	<div data-role="header">
+		<h1><a href="#home">H.I.I.T. Timer</a></h1>
+        <a dat-rel="back" href="javascript:history.back()" data-icon="arrow-l" data-mini="true">&nbsp;</a>
+    </div>
+    
+	<div  data-role="content">
+    	<label for="activeTime"><h4>Active Time:</h4></label>
+		<input type="tel" name="activeTime" id="textinput" value=""  />
+      	<hr>
+		<label for="restTime"><h4>Rest Time:</h4></label>
+		<input type="tel" name="restTime" id="textinput" value=""  />        
+		<hr>
+        <div id="workOutLengthDisplay">
+        <h4>Workout Length</h4>
+       	<label for="structure">Duration By Rounds or Time:</label>
+	    <select name="structure" id="structure" data-role="slider">
+	      <option value="rounds">rounds</option>
+	      <option value="timed">timed</option>
+        </select>
+        <div class="ui-grid-a">
+          <div class="ui-block-a">
+	  	  		<label for="roundCount" class="select">Total Round:</label>
+                  <select name="roundCount" id="roundCount">
+                    <option value="01rounds">1 Round</option>
+                    <option value="02rounds">2 Rounds</option>
+                    <option value="03rounds">3 Rounds</option>
+                    <option value="04rounds">4 Rounds</option>
+                    <option value="05rounds">5 Rounds</option>
+                    <option value="06rounds">6 Rounds</option>
+                    <option value="07rounds">7 Rounds</option>
+                    <option value="08rounds">8 Rounds</option>
+                    <option value="09rounds">9 Rounds</option>
+                    <option value="10rounds">10 Rounds</option>
+                    <option value="11rounds">11 Rounds</option>
+                    <option value="12rounds">12 Rounds</option>
+                    <option value="13rounds">13 Rounds</option>
+                    <option value="14rounds">14 Rounds</option>
+                    <option value="15rounds">15 Rounds</option>
+                    <option value="16rounds">16 Rounds</option>
+                    <option value="16rounds">17 Rounds</option>
+                    <option value="18rounds">18 Rounds</option>
+                    <option value="19rounds">19 Rounds</option>
+                    <option value="20rounds">20 Rounds</option>                                                                    
+                  </select>
+          </div> <!-- /layout block -->
+          <div class="ui-block-b">
+          		<label for="workoutDuration" class="select">Total Time:</label>
+                  <select name="workoutDuration" id="workoutDuration">
+                    <option value=".5minute">30 seconds</option>
+                    <option value=".75minute">45 seconds</option>
+                    <option value="1minute">1 Minute</option>
+                    <option value="2minute">2 Minute</option>
+                    <option value="3minute">3 Minute</option>
+                    <option value="4minute">4 Minutes</option>
+                    <option value="5minute">5 Minutes</option>
+                    <option value="10minute">10 Minutes</option>
+                    <option value="15minute">15 Minutes</option>
+                    <option value="20minute">20 Minutes</option>
+                    <option value="25minute">25 Minutes</option>
+                    <option value="30minute">30 Minutes</option>
+                    <option value="35minute">35 Minutes</option>
+                    <option value="40minute">40 Minutes</option>
+                    <option value="45minute">45 Minutes</option>
+                    <option value="50minute">50 Minutes</option>
+                    <option value="55minute">55 Minutes</option>
+                    <option value="60minute">1 Hour</option>
+                    <option value="90minute">1 Hour 30 Minutes</option>
+                    <option value="120minute">2 Hours</option>                                                                    
+                  </select>
+          </div> <!-- /layout block -->
+        </div> <!-- /layout grid -->
+        </div> <!-- /workout display block -->
+	  		
+      	<hr>
+	
+      	<div class="ui-grid-a">
+		<div class="ui-block-a">
+			<button>start</button>
+		</div>
+		<div class="ui-block-b">
+			<button onClick="saveRoutine()">save</button>
+		</div>
+   	</div>
+        
+    
+  	</div> <!-- /settings content div -->
+
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#timer">timer</a></li>
+				<li><a href="#routines">routines</a></li>
+				<li><a href="#settings" class="ui-btn-active ui-state-persist">settings</a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!-- /settings page  -->
+
+
+<div data-role="page" id="routines" data-theme="a">
+	<div data-role="header">
+		<h1><a href="#home">H.I.I.T. Timer</a></h1>
+        <a dat-rel="back" href="javascript:history.back()" data-icon="arrow-l" data-mini="true">&nbsp;</a>
+	</div>
+
+	<ul data-role="listview" data-split-icon="gear">
+	  <li><a href="#timer">Page</a><a href="#settings">Default</a></li>
+	  <li><a href="#timer">Page</a><a href="#settings">Default</a></li>
+	  <li><a href="#timer">Page</a><a href="#settings">Default</a></li>
+  </ul>
+	
+	<div data-role="footer" data-position="fixed">
+    	<div data-role="navbar">
+			<ul>
+				<li><a href="#timer">timer</a></li>
+				<li><a href="#routines" class="ui-btn-active ui-state-persist">routines</a></li>
+				<li><a href="#settings">settings</a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!-- /routines page  -->
+
+<div data-role="page" id="help" data-theme="a">
+	<div data-role="header">
+		<h3>Using the HIIT timer</h3>
+        <a dat-rel="back" href="javascript:history.back()" data-icon="arrow-l" data-mini="true">&nbsp;</a>
+	</div>
+	<div data-role="content" >
+	 
+      <div data-role="fieldcontain">
+	    <label for="textarea">Why an interval timer?</label>
+	    <textarea name="textarea" cols="40" rows="8" id="textarea"></textarea>
+      </div>
+      <div data-role="fieldcontain">
+	    <label for="textarea">How to use you HIIT timer.</label>
+	    <textarea name="textarea" cols="40" rows="8" id="textarea"></textarea>
+      </div>
+
+   </div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#timer"  data-transition="slide">timer</a></li>
+				<li><a href="#routines" data-transition="slide">routines</a></li>
+				<li><a href="#settings" data-transition="slide">settings</a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!-- /help page  -->
+
+</body>
+</html>
